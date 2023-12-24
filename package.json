@@ -1,7 +1,7 @@
 {
   "name": "javascript-quiz",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -30,8 +30,5 @@
     "eslint-plugin-react-refresh": "0.4.5",
     "typescript": "5.2.2",
     "vite": "5.0.8"
-  },
-  "ts-standard": {
-    "project": "./tsconfig.json"
   }
 }
