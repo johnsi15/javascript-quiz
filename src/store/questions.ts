@@ -8,23 +8,13 @@ interface State {
 }
 
 export const useQuestionsStore = create<State>()((set) => ({
-  questions: [],
+  questions: [], // initial state questions
   currentQuestion: 0,
   getQuestions: async (limit) => {
-    console.log('hello world')
-    set({
-      questions: [{
-        id: 1,
-        question: '¿Cuál es la salida de este código?',
-        code: 'console.log(typeof NaN)',
-        answers: [
-          'undefined',
-          'NaN',
-          'string',
-          'number'
-        ],
-        correctAnswer: 3
-      }]
-    })
+    const res = await fetch(`${location.origin}/data.json`)
+    const data = await res.json()
+
+    const questions = data.sort(() => Math.random() - 0.5).slice(0, limit)
+    set({ questions }) // question is ⬆ initial state
   }
 }))
