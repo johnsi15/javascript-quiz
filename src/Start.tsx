@@ -1,9 +1,16 @@
 import { Button } from '@mui/material'
+import { useQuestionsStore } from './store/questions'
 
 export function Start () {
+  const getQuestions = useQuestionsStore(state => state.getQuestions)
+
+  const handleClick = () => {
+    getQuestions(5)
+  }
+
   return (
     <div>
-      <Button onClick={() => { console.log('click') }} variant="contained">
+      <Button onClick={handleClick} variant="contained">
       ¡Empezar el juego!
       </Button>
     </div>
