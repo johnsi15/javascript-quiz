@@ -26,6 +26,7 @@ export const useQuestionsStore = create<State>()((set, get) => ({
     const questionData = newQuestions[questionIndex]
 
     const isCorrectUserAnswer = questionData.correctAnswer === answerIndex
+    console.log({ isCorrectUserAnswer })
 
     newQuestions[questionIndex] = {
       ...questionData,

@@ -1,6 +1,7 @@
 import { Card, List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import confetti from 'canvas-confetti'
 
 import { useQuestionsStore } from './store/questions'
 import { type Question as QuestionType } from './types'
@@ -22,6 +23,8 @@ const Question = ({ data }: { data: QuestionType }) => {
   const handleAnswerClick = (answerIndex: number) => () => {
     selectAnswer(data.id, answerIndex)
   }
+
+  if (data.isCorrectUserAnswer ?? false) confetti()
 
   return (
     <Card variant='outlined' sx={{ bgcolor: '#222', p: 2, textAlign: 'left', marginTop: 5 }}>
