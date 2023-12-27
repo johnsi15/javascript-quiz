@@ -1,8 +1,8 @@
 import { create } from 'zustand'
-import { type Questions } from '../types'
+import { type Question } from '../types'
 
 interface State {
-  questions: Questions[]
+  questions: Question[]
   currentQuestion: number
   getQuestions: (limit: number) => Promise<void>
 }
