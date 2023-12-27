@@ -5,6 +5,17 @@ import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import { useQuestionsStore } from './store/questions'
 import { type Question as QuestionType } from './types'
 
+const getBackgroundColor = (data: QuestionType, index: number) => {
+  const { userSelectedAnswer, correctAnswer } = data
+
+  if (userSelectedAnswer == null) return 'transparent'
+
+  if (index !== correctAnswer && index !== userSelectedAnswer) return 'transparent'
+
+  if (index === correctAnswer) return 'green'
+  if (index === userSelectedAnswer) return 'red'
+}
+
 const Question = ({ data }: { data: QuestionType }) => {
   const selectAnswer = useQuestionsStore(state => state.selectAnswer)
 
@@ -25,7 +36,11 @@ const Question = ({ data }: { data: QuestionType }) => {
       <List sx={{ bgcolor: '#333' }} disablePadding>
         {data.answers.map((answer, index) => (
           <ListItem key={index} disablePadding divider>
-            <ListItemButton onClick={handleAnswerClick(index)}>
+            <ListItemButton
+              disabled={data.userSelectedAnswer != null}
+              onClick={handleAnswerClick(index)}
+              sx={{ bgcolor: getBackgroundColor(data, index) }}
+            >
               <ListItemText primary={answer} sx={{ textAlign: 'center' }} />
             </ListItemButton>
           </ListItem>
