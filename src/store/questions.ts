@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
+// devtools -> 'zustand/middleware'
 import { getAllQuestions } from '../services/questions'
 import { type Question } from '../types'
 

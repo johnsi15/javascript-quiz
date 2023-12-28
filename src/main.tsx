@@ -12,7 +12,11 @@ import '@fontsource/roboto/700.css'
 
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark'
+    mode: 'dark',
+    background: {
+      default: '#073B4C',
+      paper: '#073B4C'
+    }
   }
 })
 

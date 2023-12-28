@@ -15,8 +15,8 @@ const getBackgroundColor = (data: QuestionType, index: number) => {
 
   if (index !== correctAnswer && index !== userSelectedAnswer) return 'transparent'
 
-  if (index === correctAnswer) return 'green'
-  if (index === userSelectedAnswer) return 'red'
+  if (index === correctAnswer) return '#06D6A0'
+  if (index === userSelectedAnswer) return '#EF476F'
 }
 
 const Question = ({ data }: { data: QuestionType }) => {
@@ -29,7 +29,7 @@ const Question = ({ data }: { data: QuestionType }) => {
   }
 
   return (
-    <Card variant='outlined' sx={{ bgcolor: '#222', p: 2, textAlign: 'left', marginTop: 5 }}>
+    <Card variant='outlined' sx={{ bgcolor: '#151515', p: 2, textAlign: 'left' }}>
       <Typography variant='h5'>
         {data.question}
       </Typography>
@@ -38,7 +38,7 @@ const Question = ({ data }: { data: QuestionType }) => {
         {data.code}
       </SyntaxHighlighter>
 
-      <List sx={{ bgcolor: '#333' }} disablePadding>
+      <List sx={{ bgcolor: '#1a212f' }} disablePadding>
         {data.answers.map((answer, index) => (
           <ListItem key={index} disablePadding divider>
             <ListItemButton
@@ -66,7 +66,7 @@ export function Game () {
 
   return (
     <>
-      <Stack direction='row' gap={2} alignItems='center' justifyContent='center'>
+      <Stack direction='row' gap={2} alignItems='center' marginTop={3} marginBottom={3}>
         <IconButton onClick={goPrevQuestion} disabled={currentQuestion === 0}>
           <ArrowBackIos />
         </IconButton>
@@ -77,6 +77,7 @@ export function Game () {
           <ArrowForwardIos />
         </IconButton>
       </Stack>
+
       <Question data={questionData} />
 
       <Footer />

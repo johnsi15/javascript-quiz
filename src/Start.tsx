@@ -12,7 +12,7 @@ export function Start () {
 
   return (
     <>
-      <Button onClick={handleClick} variant="contained" sx={{ marginTop: 5 }}>
+      <Button onClick={handleClick} variant="contained" sx={{ marginTop: 5 }} color='primary'>
       ¡Empezar el juego!
       </Button>
     </>

@@ -13,11 +13,11 @@ export function Footer () {
   return (
     <footer style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 10, alignItems: 'center' }}>
 
-      <Stack direction="row" spacing={2}>
+      <Stack direction="row" spacing={2} marginBottom={2}>
         {`✅ ${correct} correctas - ❌ ${incorrect} incorrectas - ⁉ ${unanswered} sin responder`}
       </Stack>
 
-      <Button onClick={handleClick}>
+      <Button variant='outlined' color='warning' onClick={handleClick}>
         Resetear juego
       </Button>
     </footer>
