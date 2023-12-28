@@ -3,10 +3,10 @@ import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import confetti from 'canvas-confetti'
+import { Footer } from './Footer'
 
 import { useQuestionsStore } from './store/questions'
 import { type Question as QuestionType } from './types'
-import { Footer } from './Footer'
 
 const getBackgroundColor = (data: QuestionType, index: number) => {
   const { userSelectedAnswer, correctAnswer } = data
@@ -24,9 +24,9 @@ const Question = ({ data }: { data: QuestionType }) => {
 
   const handleAnswerClick = (answerIndex: number) => () => {
     selectAnswer(data.id, answerIndex)
-  }
 
-  if (data.isCorrectUserAnswer ?? false) confetti()
+    if (data.correctAnswer === answerIndex) confetti()
+  }
 
   return (
     <Card variant='outlined' sx={{ bgcolor: '#222', p: 2, textAlign: 'left', marginTop: 5 }}>
