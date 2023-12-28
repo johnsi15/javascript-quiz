@@ -6,6 +6,7 @@ import confetti from 'canvas-confetti'
 
 import { useQuestionsStore } from './store/questions'
 import { type Question as QuestionType } from './types'
+import { Footer } from './Footer'
 
 const getBackgroundColor = (data: QuestionType, index: number) => {
   const { userSelectedAnswer, correctAnswer } = data
@@ -77,6 +78,8 @@ export function Game () {
         </IconButton>
       </Stack>
       <Question data={questionData} />
+
+      <Footer />
     </>
   )
 }
