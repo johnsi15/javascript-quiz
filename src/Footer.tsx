@@ -1,4 +1,4 @@
-import { Button } from '@mui/material'
+import { Button, Stack } from '@mui/material'
 import { useQuestionData } from './hooks/useQuestionsData'
 import { useQuestionsStore } from './store/questions'
 
@@ -12,7 +12,10 @@ export function Footer () {
 
   return (
     <footer style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 10, alignItems: 'center' }}>
-      <strong>{`✅ ${correct} correctas - ❌ ${incorrect} incorrectas - ⁉ ${unanswered} sin responder`}</strong>
+
+      <Stack direction="row" spacing={2}>
+        {`✅ ${correct} correctas - ❌ ${incorrect} incorrectas - ⁉ ${unanswered} sin responder`}
+      </Stack>
 
       <Button onClick={handleClick}>
         Resetear juego
