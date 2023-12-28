@@ -49,7 +49,7 @@ export function Question ({ data }: { data: QuestionType }) {
               sx={{ bgcolor: getBackgroundColor(data, index) }}
             >
               <ListItemText primary={answer} sx={{ textAlign: 'center' }} />
-            </ListItemButton>
+              </ListItemButton>
           </ListItem>
         ))}
       </List>
