@@ -1,10 +1,14 @@
 import { Card, List, ListItem, ListItemButton, ListItemText, Typography } from '@mui/material'
-import SyntaxHighlighter from 'react-syntax-highlighter'
+// import SyntaxHighlighter from 'react-syntax-highlighter'
+import { Light as SyntaxHighlighter } from 'react-syntax-highlighter'
+import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript'
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import confetti from 'canvas-confetti'
 
 import { useQuestionsStore } from './store/questions'
 import { type Question as QuestionType } from './types'
+
+SyntaxHighlighter.registerLanguage('javascript', js)
 
 const getBackgroundColor = (data: QuestionType, index: number) => {
   const { userSelectedAnswer, correctAnswer } = data
