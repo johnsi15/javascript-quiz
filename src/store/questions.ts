@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
 import { type Question } from '../types'
 
 interface State {
@@ -10,7 +11,7 @@ interface State {
   goPrevQuestion: () => void
 }
 
-export const useQuestionsStore = create<State>()((set, get) => ({
+export const useQuestionsStore = create<State>()(persist((set, get) => ({
   questions: [], // initial state questions
   currentQuestion: 0,
 
@@ -59,4 +60,6 @@ export const useQuestionsStore = create<State>()((set, get) => ({
       set({ currentQuestion: previousQuestion })
     }
   }
+}), {
+  name: 'questions-storage'
 }))
